@@ -18,17 +18,17 @@ public class StreamController {
 
     private final ChatClient chatClient;
     private final ChatClient openAiChatClient;
-    private final ChatClient ollamaChatClient;
+    //private final ChatClient ollamaChatClient;
 
 
     public StreamController(
             @Qualifier("originalChatClient") ChatClient chatClient,
-            @Qualifier("openAiChatClient") ChatClient openAiChatClient,
-            @Qualifier("ollamaChatClient")ChatClient ollamaChatClient
+            @Qualifier("openAiChatClient") ChatClient openAiChatClient
+            //@Qualifier("ollamaChatClient")ChatClient ollamaChatClient
     ){
         this.chatClient = chatClient;
         this.openAiChatClient = openAiChatClient;
-        this.ollamaChatClient = ollamaChatClient;
+        //this.ollamaChatClient = ollamaChatClient;
     }
 
     @GetMapping("/stream")

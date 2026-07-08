@@ -5,7 +5,7 @@ import com.example.ai.advisors.TokenUsageAdvisor;
 import com.openai.models.ChatModel;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
-import org.springframework.ai.ollama.OllamaChatModel;
+//import org.springframework.ai.ollama.OllamaChatModel;
 import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.context.annotation.Bean;
@@ -25,16 +25,16 @@ public class ChatClientConfig {
 
 
     //more flexile way to create chat client, gives more flexibility in terms of the methods and
-    @Bean
-    public ChatClient ollamaChatClient(OllamaChatModel ollamaChatModel){
-        ChatClient.Builder chatClientBuilder =  ChatClient.builder(ollamaChatModel);
-        chatClientBuilder.defaultSystem("You are an internal HR assistant. Your role is to" +
-                "help employees with questions related to HR policies, such as leave policies" +
-                "working hours, benefits and code of conduct. If the user asks for help with" +
-                "anything outside of these topics, kindly inform them that you can only assist" +
-                "with queries related to HR policies.");
-        return chatClientBuilder.build();
-    }
+//    @Bean
+//    public ChatClient ollamaChatClient(OllamaChatModel ollamaChatModel){
+//        ChatClient.Builder chatClientBuilder =  ChatClient.builder(ollamaChatModel);
+//        chatClientBuilder.defaultSystem("You are an internal HR assistant. Your role is to" +
+//                "help employees with questions related to HR policies, such as leave policies" +
+//                "working hours, benefits and code of conduct. If the user asks for help with" +
+//                "anything outside of these topics, kindly inform them that you can only assist" +
+//                "with queries related to HR policies.");
+//        return chatClientBuilder.build();
+//    }
 
     @Bean
     public ChatClient structuredOutputClient(OpenAiChatModel openAiChatModel){

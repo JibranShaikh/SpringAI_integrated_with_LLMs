@@ -17,17 +17,17 @@ public class ChatController {
 
     private final ChatClient chatClient;
     private final ChatClient openAiChatClient;
-    private final ChatClient ollamaChatClient;
+    //private final ChatClient ollamaChatClient;
 
 
     public ChatController(
             @Qualifier("originalChatClient") ChatClient chatClient,
-            @Qualifier("openAiChatClient") ChatClient openAiChatClient,
-            @Qualifier("ollamaChatClient")ChatClient ollamaChatClient
+            @Qualifier("openAiChatClient") ChatClient openAiChatClient
+            //Qualifier("ollamaChatClient")ChatClient ollamaChatClient
     ){
         this.chatClient = chatClient;
         this.openAiChatClient = openAiChatClient;
-        this.ollamaChatClient = ollamaChatClient;
+        //this.ollamaChatClient = ollamaChatClient;
     }
 
     @GetMapping("/chat")
@@ -49,10 +49,10 @@ public class ChatController {
     public String openaiChat(@RequestParam("message") String message){
         return openAiChatClient.prompt(message).call().content();
     }
-    @GetMapping("/ollama/chat")
-    public String ollamaChat(@RequestParam("message") String message){
-        return ollamaChatClient.prompt(message).call().content();
-    }
+//    @GetMapping("/ollama/chat")
+//    public String ollamaChat(@RequestParam("message") String message){
+//        return ollamaChatClient.prompt(message).call().content();
+//    }
 
 
 }
